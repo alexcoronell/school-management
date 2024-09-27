@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "guardian_type")
 @Getter
@@ -18,4 +20,7 @@ public class GuardianTypeEntity {
 
     @Column(nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "guardianType")
+    private List<StudentGuardianEntity> studentGuardians;
 }

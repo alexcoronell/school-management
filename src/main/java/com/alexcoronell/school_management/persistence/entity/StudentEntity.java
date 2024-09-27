@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "student")
@@ -30,6 +31,12 @@ public class StudentEntity {
     @Column(name = "second_last_name", length = 100)
     private String secondLastName;
 
+    @Column(name = "document_type", nullable = false)
+    private String documentType;
+
+    @Column(name = "document_number")
+    private String documentNumber;
+
     @Column(name = "date_of_birth", nullable = false, columnDefinition = "DATE")
     private LocalDateTime dateOfBirth;
 
@@ -44,4 +51,8 @@ public class StudentEntity {
 
     @Column(columnDefinition = "SMALLINT")
     private Boolean deleted;
+
+    /***** RELATIONS *****/
+    @OneToMany(mappedBy = "student")
+    private List<StudentGuardianEntity> studentGuardian;
 }

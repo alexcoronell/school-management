@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "guardian")
 @Getter
@@ -42,4 +44,8 @@ public class GuardianEntity {
 
     @Column(columnDefinition = "SMALLINT")
     private Boolean deleted;
+
+    /* RELATIONS */
+    @OneToMany(mappedBy = "guardian")
+    private List<StudentGuardianEntity> studentGuardians;
 }
