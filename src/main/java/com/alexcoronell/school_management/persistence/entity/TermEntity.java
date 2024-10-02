@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "term")
@@ -29,4 +30,13 @@ public class TermEntity {
 
     @Column(name = "end_date", nullable = false)
     private LocalDateTime endDate;
+
+    /*RELATIONS*/
+    @ManyToOne(targetEntity = SchoolYearEntity.class)
+    @JoinColumn(name = "school_year_id", insertable = false, updatable = false)
+    private SchoolYearEntity schoolYear;
+
+    @OneToMany(targetEntity = ClassEntity.class, fetch = FetchType.LAZY, mappedBy = "term")
+    private List<TermEntity> terms;
+
 }

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "classroom")
 @Getter
@@ -28,5 +30,8 @@ public class ClassroomEntity {
     @ManyToOne(targetEntity = ClassroomTypeEntity.class)
     @JoinColumn(name = "room_type_id", insertable = false, updatable = false)
     private ClassroomTypeEntity classroomType;
+
+    @OneToMany(targetEntity = ClassEntity.class, fetch = FetchType.LAZY, mappedBy = "classroom")
+    private List<ClassEntity> classes;
 
 }

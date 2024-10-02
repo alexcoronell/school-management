@@ -50,6 +50,6 @@ public class TeacherEntity {
     private Boolean deleted;
 
     /*RELATIONS*/
-    @OneToMany(targetEntity = ClassEntity.class, fetch = FetchType.LAZY, mappedBy = "teacherId")
+    @OneToMany(targetEntity = ClassEntity.class, fetch = FetchType.LAZY, mappedBy = "teacher")
     private List<ClassEntity> classes;
 }

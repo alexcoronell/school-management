@@ -41,4 +41,12 @@ public class ClassEntity {
     @JoinColumn(name = "teacher_id", insertable = false, updatable = false)
     private TeacherEntity teacher;
 
+    @ManyToOne(targetEntity = TermEntity.class)
+    @JoinColumn(name = "term_id", insertable = false, updatable = false)
+    private TermEntity term;
+
+    @ManyToOne(targetEntity = ClassroomEntity.class)
+    @JoinColumn(name = "classroom_id", insertable = false, updatable = false)
+    private ClassroomEntity classroom;
+
 }
