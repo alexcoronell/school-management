@@ -36,4 +36,9 @@ public class ClassEntity {
 
     private String name;
 
+    /*RELATIONS*/
+    @ManyToOne(targetEntity = TeacherEntity.class)
+    @JoinColumn(name = "teacher_id", insertable = false, updatable = false)
+    private TeacherEntity teacher;
+
 }

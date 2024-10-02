@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "teacher")
 @Getter
@@ -46,4 +48,8 @@ public class TeacherEntity {
 
     @Column(columnDefinition = "SMALLINT")
     private Boolean deleted;
+
+    /*RELATIONS*/
+    @OneToMany(targetEntity = ClassEntity.class, fetch = FetchType.LAZY, mappedBy = "teacherId")
+    private List<ClassEntity> classes;
 }
