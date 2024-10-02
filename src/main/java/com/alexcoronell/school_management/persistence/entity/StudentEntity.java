@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -38,13 +38,13 @@ public class StudentEntity {
     private String documentNumber;
 
     @Column(name = "date_of_birth", nullable = false, columnDefinition = "DATE")
-    private LocalDateTime dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Column(nullable = false)
     private String gender;
 
     @Column(columnDefinition = "DATE")
-    private LocalDateTime enrolment;
+    private LocalDate enrolment;
 
     @Column(columnDefinition = "SMALLINT")
     private Boolean active;

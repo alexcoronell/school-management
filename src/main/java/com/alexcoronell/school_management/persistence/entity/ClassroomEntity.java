@@ -16,6 +16,7 @@ public class ClassroomEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "room_type_id", nullable = false)
     private Integer roomTypeId;
 
     private String roomName;
@@ -23,4 +24,9 @@ public class ClassroomEntity {
     private Integer capacity;
 
     private String status;
+
+    @ManyToOne(targetEntity = ClassroomTypeEntity.class)
+    @JoinColumn(name = "room_type_id", insertable = false, updatable = false)
+    private ClassroomTypeEntity classroomType;
+
 }

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "classroom_type")
 @Getter
@@ -17,4 +19,7 @@ public class ClassroomTypeEntity {
     private Integer id;
 
     private String name;
+
+    @OneToMany(targetEntity = ClassroomEntity.class, fetch = FetchType.LAZY, mappedBy = "classroomType")
+    private List<ClassroomEntity> classrooms;
 }
