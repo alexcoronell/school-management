@@ -21,6 +21,6 @@ public class GuardianTypeEntity {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "guardianType")
+    @OneToMany(targetEntity = StudentGuardianEntity.class, fetch = FetchType.LAZY, mappedBy = "guardianType")
     private List<StudentGuardianEntity> studentGuardians;
 }

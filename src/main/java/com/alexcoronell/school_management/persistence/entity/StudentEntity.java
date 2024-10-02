@@ -17,7 +17,7 @@ public class StudentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "first_name", nullable = false, length = 100)
     private String firstName;
@@ -53,6 +53,6 @@ public class StudentEntity {
     private Boolean deleted;
 
     /***** RELATIONS *****/
-    @OneToMany(mappedBy = "student")
-    private List<StudentGuardianEntity> studentGuardian;
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+    private List<StudentGuardianEntity> guardians;
 }
