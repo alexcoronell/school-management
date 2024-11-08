@@ -17,7 +17,7 @@ public class SubjectEntity {
     private Integer id;
 
     @Column(name = "department_id", nullable = false)
-    private String departmentId;
+    private Integer departmentId;
 
     private String name;
 }
